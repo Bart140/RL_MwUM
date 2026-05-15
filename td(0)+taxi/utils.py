@@ -33,14 +33,13 @@ def interact(env, agent, episodes_n = 20000, window = 100):
                 # save final sampled reward
                 samp_rewards.append(samp_reward)
                 break
-
-            if i_episode >= window :
-                # get average reward from last 100 episodes
-                avg_reward = np.mean(samp_rewards)
-                # append to deque
-                avg_rewards.append(avg_reward)
-                if avg_reward > best_avg_reward:
-                    best_avg_reward = avg_reward
+        if i_episode >= window:
+            # get average reward from last "window" episodes
+            avg_reward = np.mean(samp_rewards)
+            # append one point per episode
+            avg_rewards.append(avg_reward)
+            if avg_reward > best_avg_reward:
+                best_avg_reward = avg_reward
 
         # monitor progress
         print("\rEpisode {}/{} || Best average reward {}".format(i_episode, episodes_n, best_avg_reward), end="")

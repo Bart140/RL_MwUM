@@ -36,7 +36,7 @@ def main():
     for a in alphas:
         mean_data = results_mean[a]
         std_data = results_std[a]
-        x_axis = np.arange(len(mean_data))
+        x_axis = np.arange(100, 100 + len(mean_data))
         
         line, = plt.plot(x_axis, mean_data, label=f'alpha={a}')
         plt.fill_between(x_axis, mean_data - std_data, mean_data + std_data, alpha=0.2, color=line.get_color())

@@ -42,5 +42,4 @@ class Agent:
 
         new_value = old_value + self.alpha * (reward + (self.gamma * next_max) - old_value)
 
-        # Aktualizacja tablicy
         self.Q[state][action] = new_value
