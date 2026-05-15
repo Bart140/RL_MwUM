@@ -16,14 +16,7 @@ def test_random_agent(env, episodes):
         total_rewards.append(episode_reward)
     return np.mean(total_rewards)
 
-def epsilon_greedy(Q, state, epsilon, n_actions):
-    if np.random.rand() < epsilon:
-        return np.random.randint(n_actions)
-    else:
-        return np.argmax(Q[state])
-
 def train_td0(env, alpha, episodes = 500, gamma = 0.99):
-    epsilon_start = 1.0
     n_states = env.observation_space.n
     V = np.zeros(n_states)
     V_history = []
@@ -43,4 +36,3 @@ def train_td0(env, alpha, episodes = 500, gamma = 0.99):
             state = next_state
         V_history.append(np.mean(V))
     return V, V_history
-
