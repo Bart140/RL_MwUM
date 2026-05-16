@@ -1,1 +1,5 @@
 /.idea
+/.venv
+/learning
+/.uv_cache
+*/__pycache__/*
