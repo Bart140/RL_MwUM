@@ -55,6 +55,20 @@ Tworzony jest jeden wykres `td0_taxi_alpha_comparison.png`:
 Dodatkowo skrypt wypisuje srednia i odchylenie z ostatnich 200 epizodow dla kazdego `alpha`.
 Na koncu wypisywana jest tez ewaluacja greedy policy po uczeniu (200 epizodow).
 
+## Twarde asercje (test automatyczny)
+
+Mozesz uruchomic skrypt w trybie walidacji:
+
+```bash
+python "td(0)+taxi/main.py" --assert-effects
+```
+
+W tym trybie kod sprawdza dwie rzeczy:
+- wolne uczenie: `alpha=0.01` ma wyraznie mniejszy przyrost jakosci niz `alpha=0.1`,
+- nadpisywanie wiedzy: `alpha=0.9` ma wieksza niestabilnosc (oscylacje) niz `alpha=0.1`.
+
+Jesli warunki nie sa spelnione, skrypt rzuca `AssertionError` (czyli test nie przechodzi).
+
 ## Oczekiwane obserwacje do prezentacji
 
 - `alpha = 0.01`:

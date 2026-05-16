@@ -2,4 +2,4 @@
 /.venv
 /learning
 /.uv_cache
-*/__pycache__/
+*/__pycache__/*
